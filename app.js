@@ -2,7 +2,7 @@
 
 var games = ["God of War", "Rainbow 6 Siege", "pubg", "Fortnite", "Rocket League", "Fallout", "Skyrim", "Call of Duty", "Dark Souls", "Mario Kart",];
 
-var createdNewGifs = ["smile", "hello", "this", "isnt", "working"];
+var createdNewGifs = ["Create Your Own Text Gifs"];
 
 //next thing is to turn everything from this array into a button on screen
 
@@ -26,13 +26,13 @@ renderButtons();
 
 function renderCreates(){
     $("#createdGifs").empty();
-    for(var k = 0; k < createdNewGifs.length; k++);
+    for(var k = 0; k < createdNewGifs.length; k++){
         var createButton = $("<button>");
         createButton.addClass("creates btn btn-primary");
-        // createButton.attr("data-name", created[k]);
+        createButton.attr("data-name", createdNewGifs[k]);
         createButton.text(createdNewGifs[k]);
         $("#createdGifs").append(createButton);
-        
+    }
 }
 renderCreates();
 
