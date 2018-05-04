@@ -36,20 +36,21 @@ renderButtons();
 $("#buttonRow").on("click", ".games", function(){
     console.log($(this).attr("data-name"));
 
+    $("#gifsRender").empty();
     var gameSearch = $(this).attr("data-name");
 
     event.preventDefault();
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gameSearch + "&api_key=kGu4HUdaUdb45rMyWat7f6rh1lxq0BYe&limit=1";
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gameSearch + "&api_key=kGu4HUdaUdb45rMyWat7f6rh1lxq0BYe&limit=15";
 
     $.ajax({
         url: queryURL, 
         method: "GET"
         }).then(function(response){
             console.log(response);
-
-            $("#gifsRender").html("<img src='" + response.data.image_url + "'>");
-
+            for(var j = 0; j < 15; j++){
+            $("#gifsRender").append("<img src='" + response.data[j].images.fixed_height.url + "'>");
+            }
 
         });
 
