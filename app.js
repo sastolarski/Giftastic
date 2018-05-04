@@ -48,10 +48,12 @@ $("#buttonRow").on("click", ".games", function(){
         method: "GET"
         }).then(function(response){
             console.log(response);
-            for(var j = 0; j < 15; j++){
-            $("#gifsRender").append("<img src='" + response.data[j].images.fixed_height.url + "'>");
+            console.log(response.data[0].rating);
+            for(var j = 0; j < 10; j++){
+            $("#gifsRender").append("<img src='" + response.data[j].images.fixed_height.url + "'>", "<p>" + response.data[j].rating + "</p>");
             }
-
+            // $("#gifsRender").append("<p>" + response.data[j].rating + "</p>");
+            
         });
 
         
