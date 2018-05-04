@@ -33,6 +33,29 @@ renderButtons();
 //next thing to do is to connect the buttons i've rendered into links to the giphy API
 //they need to return a certain number of gifs with the keyword searched for as the title of the game
 
+$("#buttonRow").on("click", ".games", function(){
+    console.log($(this).attr("data-name"));
+
+    var gameSearch = $(this).attr("data-name");
+
+    event.preventDefault();
+
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gameSearch + "&api_key=kGu4HUdaUdb45rMyWat7f6rh1lxq0BYe&limit=1";
+
+    $.ajax({
+        url: queryURL, 
+        method: "GET"
+        }).then(function(response){
+            console.log(response);
+
+            $("#gifsRender").html("<img src='" + response.data.image_url + "'>");
+
+
+        });
+
+        
+
+})
 
 
 
@@ -41,4 +64,4 @@ renderButtons();
 
 
 
-})  //document ready end
+});  //document ready ending
