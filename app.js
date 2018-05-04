@@ -41,7 +41,7 @@ $("#buttonRow").on("click", ".games", function(){
 
     event.preventDefault();
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gameSearch + "&api_key=kGu4HUdaUdb45rMyWat7f6rh1lxq0BYe&limit=15";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gameSearch + "&api_key=kGu4HUdaUdb45rMyWat7f6rh1lxq0BYe&limit=10";
 
     $.ajax({
         url: queryURL, 
