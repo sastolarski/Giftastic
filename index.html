@@ -21,24 +21,24 @@
     </div>
     <div class="row">
             <div class="col-md-4">
-                    <form>
-                        <div class="form-group">
-                              <label for="gameTitles">Add New Games</label>
-                              <input type="text" class="form-control" id="gameTitles"  value="Enter A Game Title Here">
-                        </div>
+                <form>
+                    <div class="form-group">
+                        <label for="gameTitles">Add New Games</label>
+                        <input type="text" class="form-control" id="gameTitles"  value="Enter A Game Title Here">
+                    </div>
                         <button type="submit" id="submitGame" class=" submit btn btn-primary">Submit</button>
                     </form>
-                    <div class="row">
-                            <div class="col-md-12">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="createGif">Create Your Own Gif</label>
-                                        <input type="text" class="form-control" id="createGif" value="Enter Text You want to be Gifified">
-                                    </div>
-                                    <button type="submit" id="submitCreate" class=" submit btn btn-primary">Submit</button>
-                                </form>
+                <div class="row">   <!--child row inside first form row-->
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group">
+                                <label for="createGif">Create Your Own Gif</label>
+                                <input type="text" class="form-control" id="createGif" value="Enter Text You want to be Gifified">
                             </div>
-                        </div>
+                                <button type="submit" id="submitCreate" class=" submit btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
 
         <div class="col-md-8">
@@ -46,12 +46,6 @@
         </div>
 
     </div>
-    
-    <!--also need a form to add an animal-->
-
-
-
-
 
 </div> <!--container ending-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

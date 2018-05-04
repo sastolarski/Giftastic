@@ -2,7 +2,7 @@
 
 var games = ["God of War", "Rainbow 6 Siege", "pubg", "Fortnite", "Rocket League", "Fallout", "Skyrim", "Call of Duty", "Dark Souls", "Mario Kart",];
 
-var created = ["smile", "hello"];
+var createdNewGifs = ["smile", "hello", "this", "isnt", "working"];
 
 //next thing is to turn everything from this array into a button on screen
 
@@ -25,11 +25,12 @@ function renderButtons(){
 renderButtons();
 
 function renderCreates(){
-    for(var k = 0; k < created.length; k++);
+    $("#createdGifs").empty();
+    for(var k = 0; k < createdNewGifs.length; k++);
         var createButton = $("<button>");
         createButton.addClass("creates btn btn-primary");
         // createButton.attr("data-name", created[k]);
-        createButton.text(created[k]);
+        createButton.text(createdNewGifs[k]);
         $("#createdGifs").append(createButton);
         
 }
@@ -48,7 +49,7 @@ $("#submitCreate").on("click", function(){
     console.log("create pushed")
     event.preventDefault();
     var newCreate = $("#createGif").val().trim();
-    created.push(newCreate);
+    createdNewGifs.push(newCreate);
     renderCreates();
 
 })
@@ -76,7 +77,6 @@ $("#buttonRow").on("click", ".games", function(){
             for(var j = 0; j < 10; j++){
             $("#gifsRender").append("<img src='" + response.data[j].images.fixed_height.url + "'>", "<p>" + response.data[j].rating + "</p>");
             }
-            // $("#gifsRender").append("<p>" + response.data[j].rating + "</p>");
             
         });
 
