@@ -16,15 +16,31 @@
         <div id="buttonRow"></div>
     </div>
     <div class="row">
+        <div id="createdGifs">
+        </div>
+    </div>
+    <div class="row">
             <div class="col-md-4">
                     <form>
                         <div class="form-group">
                               <label for="gameTitles">Add New Games</label>
                               <input type="text" class="form-control" id="gameTitles"  value="Enter A Game Title Here">
                         </div>
-                        <button type="submit" class=" submit btn btn-primary">Submit</button>
+                        <button type="submit" id="submitGame" class=" submit btn btn-primary">Submit</button>
                     </form>
+                    <div class="row">
+                            <div class="col-md-12">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="createGif">Create Your Own Gif</label>
+                                        <input type="text" class="form-control" id="createGif" value="Enter Text You want to be Gifified">
+                                    </div>
+                                    <button type="submit" id="submitCreate" class=" submit btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
             </div>
+
         <div class="col-md-8">
             <div id="gifsRender"></div>
         </div>

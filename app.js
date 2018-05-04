@@ -2,6 +2,8 @@
 
 var games = ["God of War", "Rainbow 6 Siege", "pubg", "Fortnite", "Rocket League", "Fallout", "Skyrim", "Call of Duty", "Dark Souls", "Mario Kart",];
 
+var created = ["smile", "hello"];
+
 //next thing is to turn everything from this array into a button on screen
 
 $(document).ready(function(){
@@ -19,8 +21,22 @@ function renderButtons(){
     }
 }
 
+//run render Buttons to intialize and create all started buttons
+renderButtons();
+
+function renderCreates(){
+    for(var k = 0; k < created.length; k++);
+        var createButton = $("<button>");
+        createButton.addClass("creates btn btn-primary");
+        // createButton.attr("data-name", created[k]);
+        createButton.text(created[k]);
+        $("#createdGifs").append(createButton);
+        
+}
+renderCreates();
+
 //next thing i want to do is create a form that lets me add more buttons to these
-$(".submit").on("click", function(){
+$("#submitGame").on("click", function(){
     event.preventDefault();
     var newGame = $("#gameTitles").val().trim();
     games.push(newGame);
@@ -28,7 +44,15 @@ $(".submit").on("click", function(){
 
 })
 
-renderButtons();
+$("#submitCreate").on("click", function(){
+    console.log("create pushed")
+    event.preventDefault();
+    var newCreate = $("#createGif").val().trim();
+    created.push(newCreate);
+    renderCreates();
+
+})
+
 
 //next thing to do is to connect the buttons i've rendered into links to the giphy API
 //they need to return a certain number of gifs with the keyword searched for as the title of the game
