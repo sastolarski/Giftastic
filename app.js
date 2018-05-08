@@ -4,6 +4,8 @@ var games = ["God of War", "Rainbow 6 Siege", "pubg", "Fortnite", "Rocket League
 
 var createdNewGifs = ["Create Your Own Text Gifs"];
 
+
+
 //next thing is to turn everything from this array into a button on screen
 
 $(document).ready(function(){
@@ -24,6 +26,16 @@ function renderButtons(){
 //run render Buttons to intialize and create all started buttons
 renderButtons();
 
+//next thing i want to do is create a form that lets me add more buttons to these
+$("#submitGame").on("click", function(){
+    event.preventDefault();
+    var newGame = $("#gameTitles").val().trim();
+    games.push(newGame);
+    renderButtons();
+
+})
+
+
 function renderCreates(){
     $("#createdGifs").empty();
     for(var k = 0; k < createdNewGifs.length; k++){
@@ -35,15 +47,6 @@ function renderCreates(){
     }
 }
 renderCreates();
-
-//next thing i want to do is create a form that lets me add more buttons to these
-$("#submitGame").on("click", function(){
-    event.preventDefault();
-    var newGame = $("#gameTitles").val().trim();
-    games.push(newGame);
-    renderButtons();
-
-})
 
 $("#submitCreate").on("click", function(){
     console.log("create pushed")
@@ -73,18 +76,45 @@ $("#buttonRow").on("click", ".games", function(){
         method: "GET"
         }).then(function(response){
             console.log(response);
-            console.log(response.data[0].rating);
+
             for(var j = 0; j < 10; j++){
-            $("#gifsRender").append("<img src='" + response.data[j].images.fixed_height.url + "'>", "<p>" + response.data[j].rating + "</p>");
-            }
+                var newGif = $("<img>")
+                newGif.attr({
+                    "src" : response.data[j].images.original_still.url,
+                    "data-still" : response.data[j].images.original_still.url,
+                    "data-animate" : response.data[j].images.fixed_height.url,
+                    "data-state" : "still"    
+                });
+
+                newGif.addClass("gifs")
+                
+                $("#gifsRender").append(newGif)
+            } //loop ending
+
+            $(".gifs").on("click", function() {
+
+                var state = $(this).attr("data-state");
+
+                if (state === "still") {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+                } else {
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                }
+            });
             
         });
 
-        
 
 })
 
+//next thing i needs is an ajax call that links to the .creates buttons and sends a transform request to the giphy API
 
+$("#createdGifs").on("click", ".creates", function(){
+    console.log("you pushed a button");
+    console.log($(this).attr("data-name"));
+})
 
 
 
