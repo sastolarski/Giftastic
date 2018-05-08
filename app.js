@@ -2,7 +2,7 @@
 
 var games = ["God of War", "Rainbow 6 Siege", "pubg", "Fortnite", "Rocket League", "Fallout", "Skyrim", "Call of Duty", "Dark Souls", "Mario Kart",];
 
-var createdNewGifs = ["Create Your Own Text Gifs"];
+var createdNewGifs = [];
 
 
 
@@ -62,7 +62,6 @@ $("#submitCreate").on("click", function(){
 //they need to return a certain number of gifs with the keyword searched for as the title of the game
 
 $("#buttonRow").on("click", ".games", function(){
-    console.log($(this).attr("data-name"));
 
     $("#gifsRender").empty();
     var gameSearch = $(this).attr("data-name");
@@ -112,10 +111,24 @@ $("#buttonRow").on("click", ".games", function(){
 //next thing i needs is an ajax call that links to the .creates buttons and sends a transform request to the giphy API
 
 $("#createdGifs").on("click", ".creates", function(){
-    console.log("you pushed a button");
-    console.log($(this).attr("data-name"));
-})
+    
+    $("#gifsRender").empty();
+    var textGif = $(this).attr("data-name");
 
+    var queryURL = "https://api.giphy.com/v1/gifs/translate?s=" + textGif + "&api_key=kGu4HUdaUdb45rMyWat7f6rh1lxq0BYe&limit=10";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+        var gifss = $("<img>");
+        gifss.attr("src", response.data.images.fixed_height.url);
+        gifss.addClass("created");
+        $("#gifsRender").append(gifss);
+    })
+
+})
 
 
 

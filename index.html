@@ -13,6 +13,15 @@
 <body>
 <div class="container">
     <div class="row">
+        <div class="col-md-12">
+            <h1>Giftastic</h1>
+            <p>Click the titles to view the top gifs of your favorite games.</p>
+            <p>Click the gifs to play, click again to stop.</p>
+            <p>Add new games using the box on the left.</p>
+            <p>Use the "Create Your Own Gifs" box to make a random gif out of a word or phrase!</p>
+        </div>
+    </div>
+    <div class="row">
         <div id="buttonRow"></div>
     </div>
     <div class="row">
@@ -20,11 +29,11 @@
         </div>
     </div>
     <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <form>
                     <div class="form-group">
                         <label for="gameTitles">Add New Games</label>
-                        <input type="text" class="form-control" id="gameTitles"  value="Enter A Game Title Here">
+                        <input type="text" class="form-control" id="gameTitles"  value="Game Title">
                     </div>
                         <button type="submit" id="submitGame" class=" submit btn btn-primary">Submit</button>
                     </form>
@@ -33,7 +42,7 @@
                         <form>
                             <div class="form-group">
                                 <label for="createGif">Create Your Own Gif</label>
-                                <input type="text" class="form-control" id="createGif" value="Enter Text You want to be Gifified">
+                                <input type="text" class="form-control" id="createGif" value="Enter Text">
                             </div>
                                 <button type="submit" id="submitCreate" class=" submit btn btn-primary">Submit</button>
                         </form>
@@ -41,7 +50,7 @@
                 </div>
             </div>
 
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div id="gifsRender"></div>
         </div>
 
